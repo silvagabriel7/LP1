@@ -2,13 +2,13 @@
 
 int eh_primo(int x){
     int i;
-    int cont;
+    int cont=0;
     for (i=1;i<=x;i++){
         if (x % i == 0){
           cont +=1;
         }
     }
-    if (cont == 2 || cont == 1){
+    if (cont == 2){
       return 1;
     }else{
       return 0;
