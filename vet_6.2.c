@@ -1,6 +1,7 @@
 #include <stdio.h>
+#define MAX 2
 
-void preenche(int arr[2][2], int l, int c){
+void preenche(int arr[MAX][MAX], int l, int c){
   int i,j,num;
   for (i=0;i<l;i++){
     for (j=0;j<c;j++){
@@ -11,7 +12,7 @@ void preenche(int arr[2][2], int l, int c){
   }
 }
 
-float media(int arr[2][2], int l, int c){
+float media(int arr[MAX][MAX], int l, int c){
   int i,j,soma=0;
   for (i=0;i<l;i++){
     for (j=0;j<c;j++){
@@ -29,15 +30,18 @@ int main (void){
   printf("Digite o numero de colunas do array: ");
   scanf("%d",&colunas); 
 
-  int arry[linhas][colunas];
-  preenche(arry,linhas,colunas);
+  int matriz[MAX][MAX];
+  preenche(matriz,linhas,colunas);
 
 
   for (i=0;i<linhas;i++){
     for (j=0;j<colunas;j++){
-      printf("%d ",arry[i][j]);
+      printf("%d ",matriz[i][j]);
     }
   }
+  printf("\nA media e: %f", media(matriz,linhas,colunas));
+  return 0;
+}
   printf("\nA media e: %f", media(arry,linhas,colunas));
   return 0;
 }
