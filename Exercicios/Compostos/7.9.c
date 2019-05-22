@@ -12,7 +12,7 @@ struct personagem{
 
 int main (void) {
     struct personagem p1[10];
-    for(int i=0;i<2;i++){
+    for(int i=0;i<10;i++){
         printf("Personagem %d:\n\n",i+1);
         printf("Digite o id: \n");
         scanf("%d",&p1[i].id);
@@ -22,7 +22,7 @@ int main (void) {
         printf("Digite a pontuacao: \n");
         scanf("%d",&p1[i].pontuacao);
     };
-    for(int i=0;i<2;i++){
+    for(int i=0;i<10;i++){
         printf("Personagem %d:\n\nid: %d\nposicao: (%d,%d)\npontuacao: %d\n\n",i+1,p1[i].id,p1[i].pos.x,p1[i].pos.y,p1[i].pontuacao);
     }
     return 0;
