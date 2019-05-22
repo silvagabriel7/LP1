@@ -32,42 +32,30 @@ struct animais{
     }a;
 };
 
-void preenche(struct animais* x){
-    printf("Anfibios[1]\nAves[2]\nMamíferos[3]\nRépteis[4]\nEscolha qual classe de animal deseja preencher: \n");
-    scanf("%d",&x->sub);
-    switch(x->sub){
-        case 1:
-            printf("ANFIBIOS\n");
-        break;
-        case 2:
-            printf("AVES\n");
-        break;
-        case 3:
-            printf("MAMIFEROS\n");
-        break;
-        case 4:
-            printf("REPTEIS\n");
-        break;
-        default:
-            printf("ERRO\n");
-    }
-        
-}
-
-
 int main(void){
-    int i;
     struct animais novo_animal1;
-    preenche(&novo_animal1);
+    novo_animal1.a.novo_anfibio.patas = 10;
+    novo_animal1.a.novo_anfibio.cauda = 1;
+    novo_animal1.a.novo_anfibio.esp_pele = 4.2;
     struct animais novo_animal2;
-    preenche(&novo_animal2);
+    novo_animal2.a.novo_ave.tam_bico = 5;
+    novo_animal2.a.novo_ave.auto_voo = 2.5;
+    novo_animal2.a.novo_ave.frenq_canto= 4.2;
     struct animais novo_animal3;
-    preenche(&novo_animal3);
+    novo_animal3.a.novo_mamifero.dentes = 20;
+    novo_animal3.a.novo_mamifero.vol_cereb = 5.3;
+    novo_animal3.a.novo_mamifero.velocidade = 58.9;
     struct animais novo_animal4;
-    preenche(&novo_animal4);
+    novo_animal4.a.novo_reptil.venenoso = 1;
+    novo_animal4.a.novo_reptil.auto_agua = 1.7;
+    novo_animal4.a.novo_reptil.esp_ovos = 0.6;
     struct animais novo_animal5;
-    preenche(&novo_animal5);
+    novo_animal5.a.novo_ave.tam_bico= 21;
+    novo_animal5.a.novo_ave.auto_voo= 2.1;
+    novo_animal5.a.novo_ave.frenq_canto = 7.9;
     struct animais novo_animal6;
-    preenche(&novo_animal6);
+    novo_animal6.a.novo_mamifero.dentes= 13;
+    novo_animal6.a.novo_mamifero.vol_cereb= 1.4;
+    novo_animal6.a.novo_mamifero.velocidade= 21;
     return 0;
 }
