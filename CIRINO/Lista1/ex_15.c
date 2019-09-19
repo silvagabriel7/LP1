@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <string.h>
 
 struct Dados {
     int ano_de_nasc;
@@ -33,23 +33,23 @@ int main(void){
         if(motoristas[i].ano_de_nasc > 1998){
             cont21+=1;
         }
-        if(motoristas[i].sexo == 'F' && motoristas[i].proc == 0){
+        if(strcmp(motoristas[i].sexo,"F")==0  && motoristas[i].proc == 0){
             mc+=1;
         }
         if(motoristas[i].proc == 1 && motoristas[i].ano_de_nasc > 1959 ){
             i60+=1;
         }
-        if(motoristas[i].sexo == 'F' && motoristas[i].ano_de_nasc > 1959 ){
+        if(strcmp(motoristas[i].sexo,"F")==0 && motoristas[i].ano_de_nasc > 1959 ){
             m60 = 1;
         }
     }
-    // printf("Porcentagem de motoristas com menos de 21 anos: %d%%\n",cont21*100/n);
+    printf("Porcentagem de motoristas com menos de 21 anos: %d%%\n",cont21*100/n);
     printf("Mulheres são da capital: %d\n",mc);
-    // printf("Motoristas do interior do estado com idade maior que 60 anos: %d\n",i60);
-    // if(m60 == 1){
-    //     printf("Sim existe alguma mulher com idade maior que 60 anos");
-    // }else{
-    //     printf("Não existe alguma mulher com idade maior que 60 anos");
-    // }
+    printf("Motoristas do interior do estado com idade maior que 60 anos: %d\n",i60);
+    if(m60 == 1){
+        printf("Sim existe alguma mulher com idade maior que 60 anos\n");
+    }else{
+        printf("Não existe alguma mulher com idade maior que 60 anos\n");
+    }
     return 0;
 }
