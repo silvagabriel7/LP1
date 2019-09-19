@@ -11,9 +11,9 @@ int main(void){
         }
     }
     if (cont == 2){
-        printf("O número %d é primo",n);
+        printf("O número %d é primo\n",n);
     }else{
-        printf("O número %d não é primo",n);
+        printf("O número %d não é primo\n",n);
     }
     return 0;
 }
