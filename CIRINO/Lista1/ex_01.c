@@ -9,6 +9,6 @@ int main(void){
             f = n;
         }
     }
-    printf("O número é %d",f);
+    printf("O número é %d\n",f);
     return 0;
 }
