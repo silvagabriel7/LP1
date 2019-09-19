@@ -46,7 +46,6 @@ int main(void){
             printf("Quilometragem obtida por litro de gasolina entre cada parada %d e %d: %d\n",i,i+1,kml);
         }
     }
-
     int km = 0;
     km = p[n].od - p[1].od;
     int kml = 0;
