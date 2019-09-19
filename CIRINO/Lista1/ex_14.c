@@ -11,6 +11,7 @@ int main(void){
             }    
         }
     }
+    
     printf("%d:%d:%d\n",seg = 00,min = 00,hr= 00);
     return 0;
 }
