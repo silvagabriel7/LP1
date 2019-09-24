@@ -53,6 +53,7 @@ int main(void){
     for(int i = 0;i < 10;i ++){
         printf("%d\n",vet3[i]);
     }
+    
     printf("=============================\n");
     return 0;
 }
