@@ -19,9 +19,9 @@ int main(void){
     float media_t;
     float aux_f;
     char aux_c[20];
-    struct Aluno alunos[10];
+    struct Aluno alunos[50];
 
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 50; i++){
         preencher_aluno(&alunos[i]);
         cont += 1;
         soma += alunos[i].nota;
@@ -51,8 +51,13 @@ int main(void){
     }
     printf("================================");
     printf("\n");
-   
-    
+    printf("Alunos acima da média\n");
+
+    for(int i = 0;i < 5;i++){
+        if(alunos[i].nota > media_t){
+            printf("%s %f\n",alunos[i].nome,alunos[i].nota);
+        }
+    }
 
     return 0;
 }
