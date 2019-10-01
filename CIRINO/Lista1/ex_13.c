@@ -4,6 +4,7 @@ int main(void){
     int vet1[10];
     int vet2[10];
     int vet3[10];
+    int vetor[30];
     int aux;
     printf("VETOR 1:\n");
     for(int i = 0;i < 10;i ++){
@@ -20,40 +21,29 @@ int main(void){
         scanf("%d",&vet3[i]);
     }
     printf("=============================\n");
-    for(int i = 0;i < 9;i ++){
-        for(int j = (i+1); j < 10;j ++){
-            if(vet1[j] < vet1[i]){
-                aux = vet1[j];
-                vet1[j] = vet1[i];
-                vet1[i] = aux;
-            }
-            if(vet2[j] < vet2[i]){
-                aux = vet2[j];
-                vet2[j] = vet2[i];
-                vet2[i] = aux;
-            }
-            if(vet3[j] < vet3[i]){
-                aux = vet3[j];
-                vet3[j] = vet3[i];
-                vet3[i] = aux;
+
+    for(int i = 0;i < 10;i++){
+        vetor[i] = vet1[i];
+        vetor[i+10] = vet2[i];
+        vetor[i+20] = vet3[i];
+    }
+
+    printf("=============================\n");
+    printf("VETOR TOTAL ORDENADO:\n");
+    for(int i = 0;i < 29;i ++){
+        for(int j = (i+1); j < 30;j ++){
+            if(vetor[j] < vetor[i]){
+                aux = vetor[j];
+                vetor[j] = vetor[i];
+                vetor[i] = aux;
             }
         }
     }
-    printf("VETOR 1:\n");
-    for(int i = 0;i < 10;i ++){
-        printf("%d\n",vet1[i]);
+
+    for(int i = 0;i < 29;i ++){
+        printf("%d ",vetor[i]);
     }
-    printf("=============================\n");
-    printf("VETOR 2:\n");
-    for(int i = 0;i < 10;i ++){
-        printf("%d\n",vet2[i]);
-    }
-    printf("=============================\n");
-    printf("VETOR 3:\n");
-    for(int i = 0;i < 10;i ++){
-        printf("%d\n",vet3[i]);
-    }
-    
+    printf("\n");
     printf("=============================\n");
     return 0;
 }
