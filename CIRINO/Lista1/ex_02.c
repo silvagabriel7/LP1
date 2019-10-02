@@ -10,6 +10,7 @@ int main(void){
             cont += 1;
         }
     }
+    
     if (cont == 2){
         printf("O número %d é primo\n",n);
     }else{
