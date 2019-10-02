@@ -51,5 +51,6 @@ int main(void){
     }else{
         printf("Não existe alguma mulher com idade maior que 60 anos\n");
     }
+    
     return 0;
 }
