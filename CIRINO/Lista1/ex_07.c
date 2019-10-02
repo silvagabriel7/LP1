@@ -58,6 +58,5 @@ int main(void){
             printf("%s %f\n",alunos[i].nome,alunos[i].nota);
         }
     }
-
     return 0;
 }
