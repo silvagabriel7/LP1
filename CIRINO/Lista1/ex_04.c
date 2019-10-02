@@ -8,6 +8,7 @@ int main(void){
     for(int i = n; i > 1; i--){
         fat = fat * i;
     }
+    
     printf("O fatorial de %d é %d\n",n,fat);
     return 0;
 }
