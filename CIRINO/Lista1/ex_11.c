@@ -3,7 +3,6 @@
 
 int main(void){
     int len;
-    
     char palavras[5][15] = {"banheira", "rato", "sol", "parede", "tudo"};
     char vogais[10] = {"AaEeIiOoUu"};
     for(int i = 0;i < 5;i++){
@@ -21,6 +20,7 @@ int main(void){
             printf("%s\n",palavras[i]);
         }
     }
+    
     return 0;
 }
     
