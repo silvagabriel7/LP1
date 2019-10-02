@@ -25,5 +25,6 @@ int main(void){
     nv = nv % m5;
     v = nv / m6;
     printf("%.0f de 0.01 centavos\n",v);
+    
     return 0;
 }
