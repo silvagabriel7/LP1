@@ -10,5 +10,6 @@ int main(void){
         }
     }
     printf("O número é %d\n",f);
+    
     return 0;
 }
