@@ -12,5 +12,6 @@ int main(void){
             printf("O número %d é número perfeito\n", i);
         }
     }
+    
     return 0;
 }
