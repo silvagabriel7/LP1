@@ -19,6 +19,5 @@ int main(void){
     }
     printf("O maior número é: %d\n", maior);
     printf("O segundo maior número é: %d\n", segundo_maior);
-
     return 0;
 }
