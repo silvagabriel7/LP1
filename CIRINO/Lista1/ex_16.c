@@ -1,3 +1,11 @@
+/*Faça um programa em C que atenda às regras do seguinte jogo de dados. Dois jogadores estão
+confrontando-se entre si, usando dois dados, numerados de 1 até 6 (dado RAND(5) + 1). Vence uma
+rodada quem obtiver o maior número no lançamento. Entretanto, caso um jogador obtiver um
+lançamento com dois dados iguais (por exemplo, 1 e 1, 2 e 2,....) e o outro jogador não, o jogador que
+tiver lançado a dupla ganha. Caso os dois jogadores fizerem o lançamento e o resultado for de duas
+duplas para os dois jogadores, ganha o jogador com a dupla maior. A disputa é em 11 lançamentos.
+Indique o jogador vencedor ou se houve empate.*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
