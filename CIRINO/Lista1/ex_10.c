@@ -1,3 +1,7 @@
+/* Escrever um programa em C que calcule a frequência de uso de cada palavra dentro de uma cadeia de
+caracteres que possui diversas palavras. Considerar o tamanho máximo da cadeia como sendo de 80
+colunas.*/
+
 #include <stdio.h>
 #include <string.h>
 
