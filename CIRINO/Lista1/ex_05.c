@@ -1,3 +1,8 @@
+/*O troco em moedas é uma combinação de moedas com os seguintes valores :
+R$ 1,00 ; 0,50; 0,25; 0,10; 0,05; 0,01
+Escreva um programa em C que leia qualquer valor em centavos (R$0,01 até R$1,00). Calcule e imprima
+seu equivalente em moedas. Encontre a solução que utilize o menor número possível de moedas.*/
+
 #include <stdio.h>
 
 int main(void){
