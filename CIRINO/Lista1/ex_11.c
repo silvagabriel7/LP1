@@ -1,3 +1,6 @@
+/*Escrever um programa em C que leia uma cadeia de caracteres e imprima todas as palavras que
+contenham três ou mais vogais.*/
+
 #include <stdio.h> 
 #include <string.h>
 
