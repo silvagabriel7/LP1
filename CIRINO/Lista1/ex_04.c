@@ -1,3 +1,5 @@
+/*Escreva um programa em C que calcule o fatorial de um número inteiro positivo.*/
+
 #include <stdio.h>
 
 int main(void){
