@@ -1,3 +1,6 @@
+/*Escreva um programa em C que verifique se um determinado inteiro positivo que é lido via teclado, é ou
+não primo.*/
+
 #include <stdio.h>
 
 int main(void){
