@@ -1,3 +1,6 @@
+/* Escrever um programa em C que leia um valor inteiro (limite na casa do milhar), e o imprima em forma
+de caracteres, ou seja, por extenso. Ex. : 98 = noventa e oito.*/
+
 #include <stdio.h>
 
 int main(void){
