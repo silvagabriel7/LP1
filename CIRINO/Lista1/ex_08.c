@@ -1,3 +1,6 @@
+/* Para um vetor A de 50 números inteiros, escrever um programa em C que determine o maior e o segundo
+maior elemento desse vetor. Assumir que todos os elementos são distintos.*/
+
 #include <stdio.h>
 
 int main(void){
