@@ -1,3 +1,8 @@
+/*Escreva um programa em C onde, se possa representar os nomes e as notas de alunos de um curso da
+universidade. O programa deverá imprimir os nomes dos cinco alunos que obtiverem as maiores notas
+acima da média da turma. Considerar que a turma tenha 50 alunos. Usar a estrutura multivalorada vista em
+sala de aula.*/
+
 #include <stdio.h>
 #include <string.h>
 
