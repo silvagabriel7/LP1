@@ -1,3 +1,6 @@
+/*Dados três vetores com 10 posições cada um, preenchidos com números inteiros, fazer um programa
+em C que, após a leitura dos vetores coloque-os em ordem crescente.*/
+
 #include <stdio.h>
 
 int main(void){
