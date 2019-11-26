@@ -4,62 +4,48 @@
 
 #define DIM 1000
 
-struct dicionario{
-        struct dicionario *ant, *prox;
-        char palavra[50];
-        int qtd;
-    };
-
-int main(void){
-    int i = 0;
-    int k = 0;
+int contar_palavras(char t[]){
     int cont = 0;
-    int qtd_palavra = 1;
-
-    char texto [DIM];
-
-    FILE *file;
-    file = fopen("./Desktop/testesc/texto.txt","r");
-    if(file == NULL){
-        printf("Nao foi possivel abrir o arquivo.\n");
-        getchar();
-        exit(0);
-    }
-    fgets(texto, DIM, file);
-    printf("%s \n", texto);
-    fclose(file);
-
-    while(texto[cont] != '\0'){
-        if(texto[cont] == ' '){
-            qtd_palavra ++;
+    int qtd = 1;
+    while(t[cont] != '\0'){
+        if(t[cont] == ' '){
+            qtd ++;
         }
         cont++;
     }
-    printf("qtd de palavras: %d\n",qtd_palavra);
+    return qtd;
+}
+
+
+
+void gerar_dicionario(char t[]){
+    int i = 0;
+    int j;
+    int k = 0;
+    int qtd_palavra;
+    qtd_palavra = contar_palavras(t);
+    
+    struct dicionario{
+        char palavra[50];
+        int qtd;
+        struct dicionario *ant, *prox;
+    };
 
     struct dicionario *corr, *aux;
-
     corr = aux = NULL;
     corr = (struct dicionario*) malloc(sizeof(struct dicionario));
     aux = corr;
     corr->prox = corr->ant = NULL;
 
-
-
-
-
-
-
-
-    while(texto[i] != ' ' && texto[i] != '\0'){
-        corr->palavra[i]=texto[i];
+    while(t[i] != ' ' && t[i] != '\0'){
+        corr->palavra[i]=t[i];
         i++;
     }
 
     corr->palavra[i] = '\0';
     corr->qtd = 1;
 
-    if(texto[i] != '\0'){
+    if(t[i] != '\0'){
         for(int j = 1;j < qtd_palavra; j++){
             corr = (struct dicionario*)malloc(sizeof(struct dicionario));
             corr->prox = NULL;
@@ -67,22 +53,24 @@ int main(void){
             aux->prox = corr;
             aux = corr;
 
-            if(texto[i] == ' '){
-                corr->palavra[k] = '\0';
+            if(t[i] == ' '){
                 i ++;
                 k = 0;
             }
 
-            while(texto[i] != ' ' && texto[i] != '\0'){
-                corr->palavra[k] = texto[i];
+            while(t[i] != ' ' && t[i] != '\0'){
+                corr->palavra[k] = t[i];
                 i ++;
                 k ++;
             }
 
             corr->qtd = 1;
             corr->palavra[k] = '\0';
+            k = 0;
         }
     }
+
+
 
     while (corr->ant != NULL){
         corr = corr->ant;
@@ -92,13 +80,41 @@ int main(void){
     printf("palavra: %s \n", corr->palavra);
     printf ("quantidade: %d \n",corr->qtd);
 
+    FILE *arq;
+    arq = fopen("./dicionario.txt","w");
+    
+    
+
     while (corr->prox!=NULL){
         corr = corr->prox;
-        printf("palavra: %s \n", corr->palavra);
-        printf ("quantidade: %d \n",corr->qtd);
+        fwrite(corr, sizeof(struct dicionario),1,arq);
         free (aux);
         aux = corr;
     }
+    fclose(arq);
+    
+}
 
+
+
+
+
+int main(void){
+    char texto[DIM];
+    FILE *arq;
+    arq = fopen("./texto.txt","r");
+    if(arq == NULL){
+        printf("Nao foi possivel abrir o arquivo.\n");
+        getchar();
+        exit(0);
+    }
+    fgets(texto, DIM, arq);
+    printf("%s \n", texto);
+    fclose(arq);
+
+
+    gerar_dicionario(texto);
     return 0;
     }
+
+
