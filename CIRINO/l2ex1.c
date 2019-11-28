@@ -50,11 +50,15 @@ void gerar_dicionario(char t[]){
                 i ++;
                 k = 0;
             }
-
             while(t[i] != ' ' && t[i] != '\0'){
-                corr->palavra[k] = t[i];
-                i ++;
-                k ++;
+                if(t[i] != '.' && t[i] != ',' && t[i] != ')' && t[i] != '(' && t[i] != ':' && t[i] != '!' && t[i] != '?' && t[i] != '*' && t[i] != '-' && t[i] != ';'){
+                    corr->palavra[k] = t[i];
+                    i ++;
+                    k ++;
+                }
+                else{
+                    i ++;
+                }
             }
 
             corr->palavra[k] = '\0';
@@ -78,7 +82,6 @@ void gerar_dicionario(char t[]){
             if(aux->qtd == 0){
               aux->qtd = 1;
             }
-            
         }
     }
     corr=aux;
@@ -89,7 +92,7 @@ void gerar_dicionario(char t[]){
     aux = corr;
 
     FILE *arq;
-    arq = fopen("./dicionario.txt","w");
+    arq = fopen("./Desktop/testesc/dicionario.txt","w");
     fprintf(arq,"%s: %d\n",corr->palavra,corr->qtd);
     while (corr->prox!=NULL){
         corr = corr->prox;
@@ -117,9 +120,9 @@ void mostrar_arquivo(){
             exit(0);
         }
         char texto1[DIM];
+        printf("TEXTO\n");
         
-        while(fgets(texto1, DIM, arq1) != NULL){
-            printf("TEXTO\n");
+        while(fgets(texto1, DIM, arq1)){
             printf("*****************\n");
             printf("%s\n",texto1);
             printf("*****************\n");
@@ -129,7 +132,7 @@ void mostrar_arquivo(){
     }else{
         if(escolha == 2){
             FILE *arq2;
-            arq2 = fopen("./dicionario.txt","r");
+            arq2 = fopen("./Desktop/testesc/dicionario.txt","r");
             if(arq2 == NULL){
                 printf("Dicionario nao foi gerado ainda.\n");
                 getchar();
@@ -159,7 +162,7 @@ int main(void){
         printf("Escolha uma opcao:\n[1]GERAR DICIONARIO\n[2]MOSTRAR TEXTO OU DICIONARIO\n[3]FECHAR PROGRAMA\n");
         scanf("%d",&escolha);
         if(escolha == 1){            
-            printf("Passe o caminho do arquivo desejado: \n");
+            printf("Passe o caminho do arquivo desejado(Não coloque um texto com quebra de linha): \n");
             scanf("%s",caminho);
             FILE *arq;
             arq = fopen(caminho,"r");
