@@ -3,27 +3,18 @@
 #include <string.h>
 #define  DIM 1000
 
-
-int contar_palavras(char t[]){
-    int cont = 0;
-    int qtd = 1;
-    while(t[cont] != '\0'){
-        if(t[cont] == ' '){
-            qtd ++;
-        }
-        cont++;
-    }
-    return qtd;
-}
-
 void gerar_dicionario(char t[]){
     int i = 0;
     int j;
     int k = 0;
-    int qtd_palavra;
-    qtd_palavra = contar_palavras(t);
-    printf("%s\n",t);
-    printf("%d\n",qtd_palavra);
+    int qtd_palavra = 1;
+    int cont = 0;
+    while(t[cont] != '\0'){
+        if(t[cont] == ' '){
+            qtd_palavra ++;
+        }
+        cont++;
+    }
 
     struct dicionario{
         char palavra[50];
@@ -110,19 +101,85 @@ void gerar_dicionario(char t[]){
     fclose(arq);
 }
 
+void mostrar_arquivo(){
+    int escolha;
+    char caminho[20];
+    printf("Escolha um arquivo mostrar:\n[1]TEXTO\n[2]DICIONARIO\n");
+    scanf("%d",&escolha);
+    if(escolha == 1){
+        FILE *arq1;
+        printf("Passe o caminho do arquivo desejado: \n");
+        scanf("%s",caminho);
+        arq1 = fopen(caminho,"r");
+        if(arq1 == NULL){
+            printf("Nao foi possivel abrir o arquivo.\n");
+            getchar();
+            exit(0);
+        }
+        char texto1[DIM];
+        
+        while(fgets(texto1, DIM, arq1) != NULL){
+            printf("TEXTO\n");
+            printf("*****************\n");
+            printf("%s\n",texto1);
+            printf("*****************\n");
+        };
+        
+        fclose(arq1);
+    }else{
+        if(escolha == 2){
+            FILE *arq2;
+            arq2 = fopen("./dicionario.txt","r");
+            if(arq2 == NULL){
+                printf("Dicionario nao foi gerado ainda.\n");
+                getchar();
+                exit(0);
+            }
+            char texto2[DIM];
+            printf("DICIONARIO\n");
+            printf("*****************\n");
+            while(fgets(texto2, DIM, arq2) != NULL){
+                printf("%s\n",texto2);
+            };
+            printf("*****************\n");
+            fclose(arq2);
+        }
+
+    }
+
+}
+
 
 int main(void){
-    FILE *arq;
-    arq = fopen("./texto.txt","r");
-    if(arq == NULL){
-        printf("Nao foi possivel abrir o arquivo.\n");
-        getchar();
-        exit(0);
+    int escolha;
+    char caminho[20];
+    while(escolha != 3){
+        printf("MENU\n");
+        printf("===============\n");
+        printf("Escolha uma opcao:\n[1]GERAR DICIONARIO\n[2]MOSTRAR TEXTO OU DICIONARIO\n[3]FECHAR PROGRAMA\n");
+        scanf("%d",&escolha);
+        if(escolha == 1){            
+            printf("Passe o caminho do arquivo desejado: \n");
+            scanf("%s",caminho);
+            FILE *arq;
+            arq = fopen(caminho,"r");
+            if(arq == NULL){
+                printf("Nao foi possivel abrir o arquivo.\n");
+                getchar();
+                exit(0);
+            }
+            char texto[DIM];
+            while(fgets(texto, DIM, arq) != NULL){
+                gerar_dicionario(texto);
+            };
+            fclose(arq);
+        }else{
+            if(escolha == 2){
+                mostrar_arquivo();
+            }
+        }
     }
-    char texto[DIM];
-    while(fgets(texto, DIM, arq) != NULL){
-        gerar_dicionario(texto);
-    };
-    fclose(arq);
+    printf("===============\n");
+    printf("PROGRAMA FINALIZADO\n");
     return 0;
     }
